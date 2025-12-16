@@ -1,0 +1,54 @@
+# ========================
+# Build artifacts
+# ========================
+/build/
+build/
+cmake-build-*/
+out/
+
+# ========================
+# Cache folders
+# ========================
+.cache/
+
+# ========================
+# Binaries
+# ========================
+*.out
+*.exe
+/cltop/
+
+# ========================
+# Object files
+# ========================
+*.o
+*.obj
+*.lo
+
+# ========================
+# CMake generated files
+# ========================
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+CTestTestfile.cmake
+
+# ========================
+# compile_commands.json
+# ========================
+compile_commands.json
+
+# ========================
+# Editors / IDEs
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========================
+# OS junk
+# ========================
+.DS_Store
+Thumbs.db
