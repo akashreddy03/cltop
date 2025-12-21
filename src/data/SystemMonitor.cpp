@@ -13,6 +13,7 @@ SystemStats SystemMonitor::getSystemStats() {
     systemStats.cpuPercent = computeDeltaCPU(prevCPUStats, systemStats.cpu);
     prevCPUStats = systemStats.cpu;
     systemStats.uptime = readUptime();
+    systemStats.mem = readMemory();
     return systemStats;
 }
 
@@ -49,6 +50,26 @@ float SystemMonitor::readLoad() {
     }
 
     return load.load1;
+}
+
+MemoryStats SystemMonitor::readMemory() {
+    std::ifstream file("/proc/meminfo");
+    MemoryStats ms;
+    if (file.is_open()) {
+        std::string key;
+        long value;
+        std::string unit;
+        while (file >> key >> value >> unit) {
+            if (key == "MemTotal:")
+                ms.memTotal = value;
+            else if (key == "MemFree:")
+                ms.memFree = value;
+            else if (key == "MemAvailable:")
+                ms.memAvailable = value;
+        }
+    }
+    ms.memUsed = ms.memTotal - ms.memAvailable;
+    return ms;
 }
 
 double SystemMonitor::readUptime() {

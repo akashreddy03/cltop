@@ -11,6 +11,7 @@ class SystemMonitor {
     CPUStats prevCPUStats;
     double computeDeltaCPU(const CPUStats &prev, const CPUStats &curr);
     CPUStats readCPU();
+    MemoryStats readMemory();
     double readUptime();
     float readLoad();
 };

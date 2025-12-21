@@ -24,7 +24,8 @@ void Layout::render(SystemStats SystemStats) {
     // sv.drawBorder();
     // ptv.drawBorder();
     // footer.drawBorder();
-    sv.render(SystemStats.load, SystemStats.uptime, SystemStats.cpuPercent);
+    sv.render(SystemStats.load, SystemStats.uptime, SystemStats.cpuPercent,
+              SystemStats.mem);
     ptv.render();
     footer.render();
 }

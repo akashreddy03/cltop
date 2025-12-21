@@ -10,10 +10,14 @@ struct CPUStats {
     long long user, nice, system, idle, iowait, irq, softirq, steal;
 };
 
+struct MemoryStats {
+    long memTotal, memFree, memAvailable, memUsed;
+};
+
 struct SystemStats {
     CPUStats cpu;
     double cpuPercent;
-    float mem;
+    MemoryStats mem;
     float swap;
     float load;
     float uptime;
